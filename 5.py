@@ -1,7 +1,7 @@
 
 import matplotlib.pyplot as plt
 import numpy as np
-def jedn_pravca2( x1 = int(input(" ")),  y1 = int(input(" ")),  x2 = int(input(" ")),  y2 = int(input(" "))):
+def jedn_pravca2( x1 = int(input("Unesite x koordinatu prve tocke ")),  y1 = int(input("Unesite y koordinatu prve tocke ")),  x2 = int(input("Unesite x koordinatu druge tocke ")),  y2 = int(input("Unesite y koordinatu druge tocke "))):
 
     x = np.linspace(-20, 20, 20)
     k = (y2-y1)/(x2-x1)

@@ -3,7 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import math
 
-def krug_funkc(x1 = int(input("Unesite x koordinatu prve tocke: ")), y1 = int(input("Unesite y koordinatu prve tocke:  ")), s1 = int(input("Unesite x koordinatu sredista:  ")), s2 = int(input("Unesite y koordinatu sredista:  ")), r = int(input("Unesite y koordinatu druge tocke:  "))):
+def krug_funkc(x1 = int(input("Unesite x koordinatu prve tocke: ")), y1 = int(input("Unesite y koordinatu prve tocke:  ")), s1 = int(input("Unesite x koordinatu sredista:  ")), s2 = int(input("Unesite y koordinatu sredista:  ")), r = int(input("Unesite iznos radijusa:  "))):
 
     d = math.sqrt(((s1-x1)**2)+(s2-y1)**2)
 
