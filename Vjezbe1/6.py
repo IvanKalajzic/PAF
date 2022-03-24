@@ -24,11 +24,10 @@ def krug_funkc(x1 = int(input("Unesite x koordinatu prve tocke: ")), y1 = int(in
     ax.set_aspect(1)
 
     ax.add_artist(krug)
-    plt.plot(x1, y1, "bo")
     plt.plot(s1, s2, "bo")
 
     plt.show()
 
-    return d
+    return 
 
 krug_funkc()    
