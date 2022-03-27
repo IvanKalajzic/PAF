@@ -86,7 +86,9 @@ class Particle:
             pogreska = ((abs(ana_domet-num_dom))/ana_domet)*100.0
             self.lista_gresaka.append(pogreska)
 
-        return self.graf_pogreske()
+        self.graf_pogreske()    
+
+        return 
 
 
 
