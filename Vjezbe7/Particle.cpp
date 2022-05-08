@@ -1,6 +1,17 @@
 #include <Particle.h>
 #include <math.h>
 #include <iostream>
+
+Particle::Particle(float v0, float theta, float x0, float y0)
+{
+    
+    x = x0;
+    y = y0;
+
+    Vx = v0*cos((theta/180)*3.1416);
+    Vy = v0*sin((theta/180)*3.1416);
+}
+
 void Particle::evolve()
 {
         t = t + dt;
@@ -28,14 +39,6 @@ float Particle::time()
     return t;
 };
 
-Particle::Particle(float v0, float theta, float x0, float y0)
-{
-    
-    x = x0;
-    y = y0;
 
-    Vx = v0*cos((theta/180)*3.1416);
-    Vy = v0*sin((theta/180)*3.1416);
-}
 
     
