@@ -16,6 +16,8 @@ def krug_funkc(x1 = int(input("Unesite x koordinatu prve tocke: ")), y1 = int(in
     if d == r:
         print("Tocka se nalazi na kruznici")
 
+    print('Udaljenost tocke od kruznice: {}.'.format(d))    
+
     krug = plt.Circle((s1, s2), r, fill = False)
 
     fig, ax = plt.subplots()
