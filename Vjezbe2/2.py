@@ -30,12 +30,18 @@ def kosi_hitac(v0 = 30.0, theta = 80):
 
     axs[0].plot(lista_dometa, lista_visina)
     axs[0].set_title("x-y")
+    axs[0].set_xlabel("X [m]")
+    axs[0].set_ylabel("Y [m]")
 
     axs[1].plot(lista_vremena, lista_dometa)
     axs[1].set_title("x-t")
+    axs[1].set_xlabel("Vrijeme [s]")
+    axs[1].set_ylabel("X [m]")
 
     axs[2].plot(lista_vremena, lista_visina)
     axs[2].set_title("Y-t")
+    axs[2].set_xlabel("Vrijeme [s]")
+    axs[2].set_ylabel("Y s[m]")
 
     plt.show()   
 

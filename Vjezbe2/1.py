@@ -25,12 +25,18 @@ def jednoliko_gibanje(F = 8.0, m = 2.0):
 
     axs[0].plot(lista_vremena, lista_puteva)
     axs[0].set_title("x-t")
+    axs[0].set_xlabel("Vrijeme [s]")
+    axs[0].set_ylabel("Put [m]")
 
     axs[1].plot(lista_vremena, lista_brzina)
     axs[1].set_title("v-t")
+    axs[1].set_xlabel("Vrijeme [s]")
+    axs[1].set_ylabel("Brzina [m/s]")
 
     axs[2].plot(lista_vremena, lista_akceleracija)
     axs[2].set_title("a-t")
+    axs[2].set_xlabel("Vrijeme [s]")
+    axs[2].set_ylabel("Akceleracija [m/s^2]")
 
     plt.show()    
 

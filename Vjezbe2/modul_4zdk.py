@@ -143,6 +143,8 @@ def projektil_meta(s1, s2, r, v0, theta):
 
     ax.plot(lista_dometa, lista_visina)
     ax.set_title("x-y")
+    ax.set_xlabel("X [m]")
+    ax.set_ylabel("Y [m]")
 
     plt.show()
 
