@@ -6,9 +6,9 @@ p3 = osc.HarmonicOscilator()
 dtx =0.001
 dtx2 = 0.01
 dtx3 = 0.05
-p1.set_initial_conditions(1000.0, 0.5, 0.0, 3.0, 0.0, 0.0, dtx)
-p2.set_initial_conditions(1000.0, 0.5, 0.0, 3.0, 0.0, 0.0, dtx2)
-p3.set_initial_conditions(1000.0, 0.5, 0.0, 3.0, 0.0, 0.0, dtx3)
+p1.set_initial_conditions(1000.0, 0.01, 1.0, 3.0, 0.0, 0.0, dtx)
+p2.set_initial_conditions(1000.0, 0.01, 1.0, 3.0, 0.0, 0.0, dtx2)
+p3.set_initial_conditions(1000.0, 0.01, 1.0, 3.0, 0.0, 0.0, dtx3)
 x1, t1 = p1.oscilate2(3)
 x2, t2 = p2.oscilate2(3)
 x3, t3 = p3.oscilate2(3)

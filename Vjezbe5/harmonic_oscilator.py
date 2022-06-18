@@ -1,4 +1,4 @@
-from re import X
+
 import matplotlib.pyplot as plt
 import numpy as np
 import math
@@ -40,11 +40,21 @@ class HarmonicOscilator:
             self.__move() 
         return self.lista_x, self.lista_t 
 
-    def period(self):
-        while self.lista_x[-1]<=(self.x0):
-            self.__move
-        return self.lista_t[-1]        
+    def period(self, t):
+        x, tt = self.oscilate2(t)
+        A = max(x)
+        i = x.index(A)
+        j = tt[i]
+        T = j*(1/2)
     
+        print("Numericki (dt = {}): {}.".format(self.dt, T))
+        
+
+    def periodA(self):   
+        T = 2*math.pi*math.sqrt(self.m/self.k) 
+        print("Analiticki: {}.".format(T))
+
+
 
 
 
