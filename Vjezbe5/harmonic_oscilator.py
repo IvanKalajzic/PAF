@@ -39,20 +39,26 @@ class HarmonicOscilator:
         for i in range(n):
             self.__move() 
         return self.lista_x, self.lista_t 
-
-    def period(self, t):
-        x, tt = self.oscilate2(t)
-        A = max(x)
-        i = x.index(A)
-        j = tt[i]
-        T = j*(1/2)
-    
-        print("Numericki (dt = {}): {}.".format(self.dt, T))
-        
+     
 
     def periodA(self):   
         T = 2*math.pi*math.sqrt(self.m/self.k) 
         print("Analiticki: {}.".format(T))
+
+    def Period(self, t):
+        self.lista_brojac = []
+        self.oscilate2(t)
+        for i in range(len(self.lista_x)):
+            if self.lista_x[i] <= 0:
+                self.lista_brojac.append(self.lista_t[i])
+                break
+
+        T = self.lista_brojac[-1]*4 
+        print("Numericki (dt = {}): {}.".format(self.dt, T))   
+        
+
+
+
 
 
 
