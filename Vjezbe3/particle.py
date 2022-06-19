@@ -71,18 +71,18 @@ class Particle:
 
 
         
-    def __relativna_pogreska(self, dt):
-        self.lista_t.append(self.lista_t[-1]+dt)
-        self.lista_x.append(self.lista_x[-1]+self.V0x*dt)
-        self.V0y = self.V0y-self.g*dt
-        self.lista_y.append(self.lista_y[-1]+self.V0y*dt)
+    def __relativna_pogreska(self, dtt):
+        self.lista_t.append(self.lista_t[-1]+dtt)
+        self.lista_x.append(self.lista_x[-1]+self.V0x*dtt)
+        self.V0y = self.V0y-self.g*dtt
+        self.lista_y.append(self.lista_y[-1]+self.V0y*dtt)
 
        
        
 
-    def range_pogreske(self, dt):
+    def range_pogreske(self, dtt):
          while self.lista_y[-1] >= 0:
-            self.__relativna_pogreska(dt)
+            self.__relativna_pogreska(dtt)
          return self.lista_x[-1]         
 
     def analit_dom(self):

@@ -5,22 +5,22 @@ p1 = particle.Particle()
 p1.__init__()
 
 lista_vremena = []
-lista_gresaka = []
+lista_pogresaka = []
 
 for i in range(100):
     p1.set_initial_conditions(0.0, 0.0, 10.0, 60.0)
-    dt = i/100
+    dt = i/1000+0.01
     lista_vremena.append(dt)
     ana_domet = p1.analit_dom()
     num_dom = p1.range_pogreske(dt)
     pogreska = ((abs(ana_domet-num_dom))/ana_domet)*100
-    lista_gresaka.append(pogreska)
+    lista_pogresaka.append(pogreska)
     p1.reset()
 
 fig, axs = plt.subplots()
 axs.set_xlabel("dt [s]")
 axs.set_ylabel("Relativna pogreška [%]")
-axs.plot(lista_vremena, lista_gresaka)
+axs.plot(lista_vremena, lista_pogresaka)
 axs.set_title("Graf relativne pogreske dometa projektila")
 plt.show()   
 
