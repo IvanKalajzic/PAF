@@ -10,6 +10,8 @@ class Particle:
         self.lista_t = []
         self.lista_a = []
         self.lista_gresaka = []
+        self.lista_v = []
+        self.lista_udaljenosti = []
         self.dt = 0.01
         self.g = 9.81
 
@@ -19,23 +21,42 @@ class Particle:
         self.lista_y.append(y0)
         self.lista_t.append(0)
         self.lista_gresaka.append(0)
-        self.v0 = v0
+        self.lista_v.append(0)
         self.theta = theta
-        self.V0x = np.cos(theta*np.pi/180)*v0
-        self.V0y = np.sin(theta*np.pi/180)*v0
+        self.v0 = v0
+        self.V0x = math.cos(theta*math.pi/180)*v0
+        self.V0y = math.sin(theta*math.pi/180)*v0
+
+        return 
 
     def reset(self):
-        self._init_()  
+        self.__init__()  
 
     def __move(self):
         self.lista_t.append(self.lista_t[-1]+self.dt)
         self.lista_x.append(self.lista_x[-1]+self.V0x*self.dt)
         self.V0y = self.V0y-self.g*self.dt
+        self.maks = math.sqrt(((self.V0x)**2)+((self.V0y)**2))
+        self.lista_v.append(self.maks)
         self.lista_y.append(self.lista_y[-1]+self.V0y*self.dt)
 
-    def range(self):
+    def range(self): 
         while self.lista_y[-1] >= 0:
             self.__move()
+        return  self.lista_x, self.lista_y     
+
+
+    def range_d(self):
+        while self.lista_y[-1] >= 0:
+            self.__move()
+        return abs(self.lista_x[-1])
+
+    def range_t(self):
+        while self.lista_y[-1] >= 0:
+            self.__move()
+        return self.lista_t[-1]    
+
+
 
     def plot_trajectory(self):
         fig, axs = plt.subplots()
@@ -50,9 +71,8 @@ class Particle:
 
 
         
-
-
     def __relativna_pogreska(self, dt):
+        self.lista_t.append(self.lista_t[-1]+dt)
         self.lista_x.append(self.lista_x[-1]+self.V0x*dt)
         self.V0y = self.V0y-self.g*dt
         self.lista_y.append(self.lista_y[-1]+self.V0y*dt)
@@ -63,32 +83,42 @@ class Particle:
     def range_pogreske(self, dt):
          while self.lista_y[-1] >= 0:
             self.__relativna_pogreska(dt)
-
          return self.lista_x[-1]         
 
     def analit_dom(self):
-        return (self.v0**2/self.g*2)*np.sin(2*self.theta*np.pi/180)        
+        return ((self.v0**2)*math.sin(2*(self.theta*math.pi/180)))/self.g        
             
 
-    def graf_pogreske(self):
-        fig, axs = plt.subplots()
 
-        axs.plot(self.lista_t, self.lista_gresaka)
-        axs.set_title("Graf relativne pogreske dometa projektila")
-        plt.show()
+    def total_time(self):
+        while self.lista_y[-1] >= 0:
+            self.__move()
 
-    def relativna_pogreska_u_dometu(self):
-        for i in range(100):
-            dt = i*0.001
-            self.lista_t.append(dt)
-            ana_domet = self.analit_dom()
-            num_dom = self.range_pogreske(dt)
-            pogreska = ((abs(ana_domet-num_dom))/ana_domet)*100.0
-            self.lista_gresaka.append(pogreska)
+        return self.lista_t[-1]   
 
-        self.graf_pogreske()    
+    def max_speed(self):
+        while self.lista_y[-1] >= 0:
+            self.__move()
 
-        return 
+        return max(self.lista_v)  
+
+   
+
+    
+
+          
+               
+
+                
+
+
+
+
+    
+             
+
+
+
 
 
 
